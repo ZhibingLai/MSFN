@@ -1,0 +1,64 @@
+{
+    "mode": "sr",
+    "use_cl": false,
+    "gpu_ids": [0],
+
+    "scale": 4,
+    "is_train": true,
+    "use_chop": false,
+    "run_range": 1.0,
+    "img_range": 2047.0,
+    "self_ensemble": false,
+    "save_image": false,
+
+    "datasets": {
+        "train": {
+            "mode": "LRHR",
+            "dataroot_HR": "/home/ser606/Desktop/lihuiChen/图片汇总处理/QB/npy/train/HR_npy",
+            "dataroot_LR": "/home/ser606/Desktop/lihuiChen/图片汇总处理/QB/npy/train/LR_npy",
+            "dataroot_PAN": "/home/ser606/Desktop/lihuiChen/图片汇总处理/QB/npy/train/PAN_npy",
+            "data_type": "npy",
+            "n_workers": 4,
+            "batch_size":8,
+            "LR_size": 16,
+            "use_flip": true,
+            "use_rot": true,
+            "noise": "."
+        },
+        "val": {
+            "mode": "LRHR",
+            "dataroot_HR": "/home/ser606/Desktop/lihuiChen/图片汇总处理/QB/npy/value/HR_npy",
+            "dataroot_LR": "/home/ser606/Desktop/lihuiChen/图片汇总处理/QB/npy/value/LR_npy",
+            "dataroot_PAN": "/home/ser606/Desktop/lihuiChen/图片汇总处理/QB/npy/value/PAN_npy",
+            "data_type": "npy"
+        }
+    },
+
+    "networks": {
+        "which_model": "MSFN",
+        "num_features": 32,
+        "in_channels": 4,
+        "out_channels": 4,
+        "num_steps": 4,
+        "num_groups": 3
+    },
+
+    "solver": {
+        "type": "ADAM",
+        "learning_rate": 0.0001,
+        "weight_decay": 0,
+        "lr_scheme": "MultiStepLR",
+        "lr_steps": [200, 400, 600, 800],
+        "lr_gamma": 0.5,
+        "loss_type": "l1",
+        "manual_seed": 0,
+        "num_epochs": 1000,
+        "skip_threshold": 3,
+        "split_batch": 1,
+        "save_ckp_step": 50,
+        "save_vis_step": 1,
+        "pretrain":null,
+        "pretrained_path": "/home/ser606/Desktop/lihuiChen/ArbRPN/pansharpening_new/experiments/TFNET_in4f64_x4/epochs/last_ckp.pth",
+        "cl_weights": [1.0, 1.0, 1.0, 1.0]
+    }
+}

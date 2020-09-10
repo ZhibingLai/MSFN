@@ -1,0 +1,65 @@
+{
+    "mode": "sr",
+    "use_cl": true,
+    "gpu_ids": [0],
+    "run_range": 1.0,
+
+    "scale": 4,
+    "degradation": "P",
+    "is_train": false,
+    "use_chop": false,
+    "img_range": 4095.0,
+    "self_ensemble": false,
+
+    "datasets": {
+        "test_set1": {
+            "name": "P",
+            "mode": "LRPAN",
+//            "dataroot_HR": "/home/ser606/Desktop/lihuiChen/图片汇总处理/QB/npy/test/HR_npy",
+//            "dataroot_LR": "/home/ser606/Desktop/lihuiChen/图片汇总处理/QB/npy/test/LR_npy",
+//            "dataroot_PAN": "/home/ser606/Desktop/lihuiChen/图片汇总处理/QB/npy/test/PAN_npy",
+//            "data_type": "npy"
+//            "dataroot_HR": "/home/ser606/Desktop/lihuiChen/图片汇总处理/IK/npy/test/HR_npy",
+//            "dataroot_LR": "/home/ser606/Desktop/lihuiChen/图片汇总处理/IK/npy/test/LR_npy",
+//            "dataroot_PAN": "/home/ser606/Desktop/lihuiChen/图片汇总处理/IK/npy/test/PAN_npy",
+//            "data_type": "npy"
+//            "dataroot_HR": "/home/ser606/Desktop/lihuiChen/图片汇总处理/WV2/npy/test/HR_npy",
+//            "dataroot_LR": "/home/ser606/Desktop/lihuiChen/图片汇总处理/WV2/npy/test/LR_npy",
+//            "dataroot_PAN": "/home/ser606/Desktop/lihuiChen/图片汇总处理/WV2/npy/test/PAN_npy",
+//            "data_type": "npy"
+//            "dataroot_HR": "/home/ser606/Desktop/lihuiChen/ArbRPN/PanSharpData_npy/P_npy/test/HR_npy",
+            "dataroot_LR": "/home/ser606/Desktop/lihuiChen/图片汇总处理/P/test_for_full_64/MS_npy",
+            "dataroot_PAN": "/home/ser606/Desktop/lihuiChen/图片汇总处理/P/test_for_full_64/PAN_npy",
+            "data_type": "npy"
+//            "dataroot_HR": "/home/ser606/Desktop/lihuiChen/图片汇总处理/QB/npy/test/HR_npy",
+//            "dataroot_LR": "/home/ser606/Desktop/lihuiChen/图片汇总处理/QB/npy/test/LR_npy",
+//            "dataroot_PAN": "/home/ser606/Desktop/lihuiChen/图片汇总处理/QB/npy/test/PAN_npy",
+//            "data_type": "npy"
+        }
+//        "test_set2": {
+//             "mode": "LRHR",
+//             "dataroot_HR": "./results/HR/Set14/x4",
+//             "dataroot_LR": "./results/LR/LRBI/Set14/x4",
+//             "data_type": "img"
+//         },
+//        "test_set3": {
+//             "mode": "LRPAN",
+//             "dataroot_LR": "./results/LR/MyImage",
+//             "data_type": "img"
+//         }
+    },
+
+
+    "networks": {
+        "which_model": "DICNN2",
+        "num_features": 64,
+        "in_channels": 4,
+        "out_channels": 4,
+        "num_steps": 4,
+        "num_groups": 3
+    },
+
+    "solver": {
+        "pretrained_path": "/home/ser606/Desktop/lihuiChen/ArbRPN/pansharpening_new/experiments/lrsize16_P/DICNN2_in4f64_x4/epochs/best_ckp.pth"
+    }
+}
